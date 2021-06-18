@@ -4,7 +4,7 @@
     create database Aspire
 
 ### Give Proper Credentials In .env
-    Change SMTP credentails in .env
+    Give Database and SMTP credentails in .env
 
 ### Run Composer Update
     composer update
