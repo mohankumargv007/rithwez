@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Modules\Questions\Models;
+namespace App\Modules\Loans\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Sofa\Revisionable\Laravel\Revisionable;
 
-class Question extends Model
+class UserLoanEmi extends Model
 {
     use Notifiable;
-    protected $table = 'questions';
+    protected $table = 'user_loan_emis';
     
 }

@@ -4,9 +4,7 @@
 return  [
     'modules' => [
         'Users',
-        'Tags',
-        'Questions',
-        'Answers',
-        'Votes'
+        'Loans',
+        'Middlewares'
     ]
 ];

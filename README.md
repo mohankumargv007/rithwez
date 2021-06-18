@@ -1,7 +1,7 @@
-# Oorwin
+# Aspire
 
 ### Create Database
-    create database laravel
+    create database Aspire
 
 ### Give Proper Credentials In .env
     Change SMTP credentails in .env

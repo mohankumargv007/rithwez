@@ -16,11 +16,32 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style type="text/css">
         body {
             overflow-x: hidden;
+        }
+        .divLoading {
+            margin: 0px; 
+            padding: 0px; 
+            position: fixed; 
+            right: 0px; 
+            top: 0px; 
+            width: 100%; 
+            height: 100%; 
+            background-color: rgb(102, 102, 102); 
+            z-index: 30001; 
+            opacity: 0.8;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .emiInfoVal {
+            font-weight: bold;
         }
     </style>
 </head>
@@ -83,6 +104,15 @@
                 </div>
             </div>
         </div>
+        <div class="divLoading hidden">
+            <p style="position: absolute; color: White; top: 50%; left: 45%;">
+            <b>Loading, please wait...</b>
+        </p>
     </div>
 </body>
+<script type="text/javascript">
+    const url       = window.origin;
+    const api_url   = url+'/api'
+</script>
+@yield('BasicJs')
 </html>
