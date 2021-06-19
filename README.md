@@ -1,5 +1,8 @@
 # Aspire
 
+### Clone this repo
+    Checkout to master branch
+
 ### Create Database
     create database Aspire
 
