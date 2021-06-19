@@ -14,6 +14,9 @@
 
 ### Run db seed
     php artisan db:seed
+    Admin User Will Be Created With This Seeding.
+    Mail ID : aspire@gmail.com 
+    Password : aspire123
     
 ### Aspire Assignment Documentation
     Please check this link for detailed documentiontation
