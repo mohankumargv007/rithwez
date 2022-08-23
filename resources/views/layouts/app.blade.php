@@ -98,11 +98,25 @@
             </div>
         </nav>
         <div class="row" style="margin-left: -15px; margin-right: -15px;">
-            <div class="col-lg-12">
-                <div class="py-4">
-                    @yield('content')
+                @auth
+                <div class="col-lg-2">
+                    <div class="py-4">
+                        @include('pages.sidebar')
+                    </div>
                 </div>
-            </div>
+                <div class="col-lg-9">
+                    <div class="py-4">
+                        @yield('content')
+                    </div>
+                </div>
+                @else
+                <div class="col-lg-12">
+                    <div class="py-4">
+                        @yield('content')
+                    </div>
+                </div>
+                @endauth
+                
         </div>
         <div class="divLoading hidden">
             <p style="position: absolute; color: White; top: 50%; left: 45%;">

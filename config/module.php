@@ -5,6 +5,7 @@ return  [
     'modules' => [
         'Users',
         'Loans',
-        'Middlewares'
+        'Middlewares',
+        'Hierarchy'
     ]
 ];

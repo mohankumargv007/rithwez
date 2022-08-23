@@ -28,9 +28,9 @@ class HomeController extends Controller
         $user = User::get();
         if(isset(Auth::user()->email_verified_at)) {
             if(Auth::user()->role == 'Admin') {
-                return redirect('/loans/list');
+                return redirect('/hierarchy/add');
             } else {
-                return redirect('/loans/apply');
+                return redirect('/hierarchy/apply');
             }
         } else {
             return view('auth.verify');

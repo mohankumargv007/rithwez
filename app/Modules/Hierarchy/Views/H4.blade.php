@@ -8,7 +8,7 @@
                 <div class="card-header"><b>{{Auth()->user()->first_name}} {{Auth()->user()->last_name}}'s {{ __(' Dashboard') }}</b></div>
 
                 <div class="card-body">
-                    {{ __('You are logged in!') }}
+                {{ __('H4') }}
                 </div>
             </div>
         </div>
@@ -16,35 +16,39 @@
     <div class="row justify-content-center" style="margin-top: 5%">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header"><b>{{ __('Apply Loan Here') }}</b></div>
+                <div class="card-header"><b>{{ __('Occupancy Classes') }}</b></div>
 
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-lg-3 col-md-3">
-                            <label>Select Loan Type : </label>
-                            <select class="form-control loanType" id="loanType">
+                        <div class="col-lg-4 col-md-4">
+                            <label>Select The H3 Name : </label>
+                            <select class="form-control h3_name" id="h3_name">
                                 <option value="">-- Select --</option>
-                                @foreach($loansInfo as $key => $loan)
-                                    <option value="{{$loan['NAME']}}">{{$loan['NAME']}}</option>
+                                @foreach($H3List as $key => $h3)
+                                    <option value="{{$h3['id']}}">{{$h3['h3_name']}}</option>
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-lg-3 col-md-3">
-                            <label>Interest Rate(%) : </label>
-                            <input type="text" class="intererest_rate form-control" name="intererest_rate" id="intererest_rate" readonly/>
+                        <div class="col-lg-4 col-md-4">
+                            <label>Model Building Type: </label>
+                            <input type="text" class="wall_type form-control" name="wall_type" id="wall_type" />
                         </div>
-                        <div class="col-lg-3 col-md-3">
-                            <label>Enter Required Loan Amount : </label>
-                            <input type="number" class="loan_amount form-control" name="loan_amount" id="loan_amount" min="1000" value="1000" />
+                        <div class="col-lg-4 col-md-4">
+                            <label>Wall Framing Type : </label>
+                            <input type="text" class="h4_name form-control" name="h4_name" id="h4_name" />
                         </div>
-                        <div class="col-lg-3 col-md-3">
-                            <label>Select EMI Plan (in weekly) : </label>
-                            <select class="form-control emiPlan" id="emiPlan">
-                                <option value="">-- Select --</option>
-                                @foreach($emis as $key => $emi)
-                                    <option value="{{$emi}}">{{$emi}}</option>
-                                @endforeach
-                            </select>
+                        <div class="col-lg-4 col-md-4">
+                            <label>Roof Type : </label>
+                            <input type="text" class="roof_type form-control" name="roof_type" id="roof_type" />
+                        </div>
+                        <div class="col-lg-4 col-md-4">
+                            <label>No Of Stories : </label>
+                            <input type="text" class="no_of_stories form-control" name="no_of_stories" id="no_of_stories" />
+                        </div>
+                        <div class="col-lg-2 col-md-2">
+                            <div class="row" style="margin-top: 20%">
+                                <button class="btn btn-md btn-primary apply" id="apply">Add</button>
+                            </div>
                         </div>
                     </div>
                     <div class="EmiInfo hidden">
@@ -80,64 +84,28 @@
         <div class="row justify-content-center" style="margin-top: 5%">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header"><b>{{ __('Your Loan History') }}</b></div>
+                    <div class="card-header"><b>{{ __('H4 List') }}</b></div>
 
                     <div class="card-body">
-                        @if(count($UserLoans))
-                            <div class="row" align="center" style="margin-top: 2%">
-                                <div class="col-lg-2 col-md-2">
-                                    <b>Loan Type</b>
-                                </div>
-                                <div class="col-lg-2 col-md-2">
-                                    <b>Amount</b>
-                                </div>
-                                <div class="col-lg-2 col-md-2">
-                                    <b>Interest Rate (%)</b>
-                                </div>
-                                <div class="col-lg-2 col-md-2">
-                                    <b>Status</b>
-                                </div>
-                                <div class="col-lg-2 col-md-2">
-                                    <b>EMI</b>
-                                </div>
-                                <div class="col-lg-2 col-md-2">
-                                    <b>Action</b>
-                                </div>
-                            </div>
-                            @foreach($UserLoans as $loan)
-                                <div class="row" align="center" style="margin-top: 2%">
-                                    <div class="col-lg-2 col-md-2">
-                                        {{$loan['loan_type']}}
+                        @if(count($H4List))
+                            @foreach($H4List as $h4)
+                                <div class="row"  style="margin-top: 2%">
+                                <div class="col-lg-3 col-md-3">
+                                        {{$h4['wall_type']}}
                                     </div>
-                                    <div class="col-lg-2 col-md-2">
-                                        {{$loan['loan_amount']}}
+                                    <div class="col-lg-3 col-md-3">
+                                        {{$h4['h4_name']}}
                                     </div>
-                                    <div class="col-lg-2 col-md-2">
-                                        {{$loan['interest_rate']}}
-                                    </div>
-                                    <div class="col-lg-2 col-md-2">
-                                        {{$loan['status']}}
-                                    </div>
-                                    <div class="col-lg-2 col-md-2">
-                                        {{$loan['emi_plan']}}
-                                    </div>
-                                    <div class="col-lg-2 col-md-2">
-                                        @if($loan['status'] != 'In-Progress')
-                                            <button class="btn btn-md btn-success">
-                                                <a href="/loans/view/{{$loan['id']}}" style="color: white">
-                                                    View        
-                                                </a>
-                                            </button>
-                                        @else
-                                            <button class="btn btn-md btn-primary" style="color: white" disabled="disabled">
-                                                View        
-                                            </button> 
-                                        @endif
+
+                                    <div class="col-lg-3 col-md-3">
+                                        <div class="row">
+                                            <button class="btn btn-md btn-danger">Delete</button>
+                                        </div>
                                     </div>
                                 </div>
                             @endforeach
                         @else
-                            {{ __('You didnt apply any loan') }}
+                            {{ __('You didnt add any H3 category') }}
                         @endif
                     </div>
                 </div>
@@ -216,18 +184,21 @@
         });
 
         $(document).on("click", ".apply", function () {
+            if(!$('.h3_name').val()) {
+                alert('Please select h3 name');
+                return false;
+            }
             $(document).find('.divLoading').removeClass('hidden');
-
             var payload = {
-                'loan_type'         : $('.emiInfoLoanType').text(),
-                'intererest_rate'   : $('.emiInfoInterestRate').text(),
-                'loan_amount'       : $('.emiInfoLoanAmount').text(),
-                'emi_plan'          : $('.emiInfoEmiPlan').text(),
-                'weekly_pay'        : $('.emiInfoWeeklyEmi').text()
+                'h3_name'         : $('.h3_name').val(),
+                'h4_name'         : $('.h4_name').val(),
+                'wall_type'         : $('.wall_type').val(),
+                'roof_type'         : $('.roof_type').val(),
+                'no_of_stories'         : $('.no_of_stories').val(),
             }
 
             $.ajax({
-                        url: api_url+"/loans/apply",
+                        url: api_url+"/hierarchy/add/h4",
                         method: 'POST',
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -235,14 +206,14 @@
                         data:  payload,
                         success: function(result){
                             if(result.status) {
-                                alert('Loan applied successfully.');
+                                alert('H3 added successfully.');
                                 location.reload();
                             } else {
-                                alert('Loan application failed.Please try again after sometime')
+                                alert('Failed.Please try again after sometime')
                             }
                         }
                     })
         });
-    });
+    })
 </script>
 @endsection

@@ -13,7 +13,7 @@ class CreateUserLoans extends Migration
      */
     public function up()
     {
-        Schema::create('user_loans', function (Blueprint $table) {
+      /*   Schema::create('user_loans', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->string('loan_type');
             $table->integer('interest_rate');
@@ -45,7 +45,7 @@ class CreateUserLoans extends Migration
                            ->onDelete('cascade');
             $table->boolean('status')->default(1);
             $table->timestamps();
-        });
+        }); */
     }
 
     /**

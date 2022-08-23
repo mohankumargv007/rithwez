@@ -11,7 +11,7 @@ namespace App\Modules;
 * @author Kamran Ahmed <kamranahmed.se@gmail.com>
 * @package App\Modules
 */
-class ModulesServiceProvider extends \Illuminate\Support\ServiceProvider
+class ModuleServiceProvider extends \Illuminate\Support\ServiceProvider
 {
 	/**
 	 * Will make sure that the required modules have been fully loaded
